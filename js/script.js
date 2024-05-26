@@ -82,7 +82,9 @@ function addNewRow(product) {
 
     //Insere a descrição do produto na Tabela
     var descNode = document.createTextNode(product.description);
-    newRow.insertCell().appendChild(descNode);
+    var cell = newRow.insertCell();
+    cell.className='d-none d-md-table-cell';
+    cell.appendChild(descNode);
 
     //Insere o preço do produto na Tabela
 
@@ -108,6 +110,8 @@ function addNewRow(product) {
         opcao += '<span class="badge bg-primary">L</span>';
     }
 
-    newRow.insertCell().innerHTML = opcao;
+    cell = newRow.insertCell();
+    cell.className='d-none d-md-table-cell'
+    cell.innerHTML = opcao;
 
 }
