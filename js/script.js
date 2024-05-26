@@ -1,5 +1,5 @@
 //Máscaras
-$("#inputPrice").mask('000.000.000.000.000,00', {reverse: true});
+$("#inputPrice").mask('000.000.000.000.000,00', { reverse: true });
 
 var products = [
     {
@@ -47,6 +47,25 @@ function loadProducts() {
     }
 }
 
+//Salva os dados digitados no formulário
+function save() {
+
+    var product = {
+        id: products.length + 1,
+        name: document.getElementById("inputName").value,
+        description: document.getElementById("inputDescription").value,
+        price: document.getElementById("inputPrice").value,
+        category: document.getElementById("selectCategory").value,
+        promotion: document.getElementById("checkboxPromotion").checked,
+        new: document.getElementById("checkboxNewProduct").checked,
+    };
+
+    addNewRow(product);
+    products.push(product);
+
+    document.getElementById("formProduct").reset();
+}
+
 //Adiciona nova linha
 function addNewRow(product) {
     var table = document.getElementById("productsTable");
@@ -90,4 +109,5 @@ function addNewRow(product) {
     }
 
     newRow.insertCell().innerHTML = opcao;
+
 }
